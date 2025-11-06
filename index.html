@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kawtar MALKI | Portfolio</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <a href="#" class="logo">Kawtar</a>
+    <nav>
+      <a href="#home" class="active">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HOME -->
+  <section id="home" class="home">
+    <div class="home-img">
+      <img src="main.png" alt="Portrait of Kawtar Malki">
+    </div>
+    <div class="home-content">
+      <h1>Hi, I'm <span>Kawtar MALKI</span></h1>
+      <h3 class="typing-text">I'm a <span></span></h3>
+      <p>Mechanical Engineering student at ENSAM Meknès, specializing in Structures and Product Engineering. 
+      I have strong skills in CAD design, simulation, and analysis of mechanical systems. 
+      Passionate about technological innovation and problem-solving, I am seeking a 4–6 month end-of-studies internship starting in February 2026.</p>
+
+      <div class="actions-row">
+        <a href="#contact" class="btn">Hire Me</a>
+        <a href="Resume_2026_Malki_Kawtar.pdf" download class="btn">Download CV</a>
+      </div>
+
+      <div class="social-icons">
+        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+    </div>
+  </section>
+
+  <!-- PROJECTS OVERVIEW (cards that open project full views) -->
+  <section id="projects" class="projects-overview section-two">
+    <div class="section-content narrow">
+      <h2>Projects</h2>
+      <p class="intro">Click a project to view details .</p>
+
+      <div class="project-grid">
+        <!-- Each card triggers the project viewer; data-index matches project index in JS (0-based) -->
+        <article class="project-card" data-index="0">
+          <img src="project11.png" alt="Wind turbine mold">
+          <div class="card-body">
+            <h3>Wind Turbine Blade Mold</h3>
+            <p>Design & manufacturing of a wind turbine blade mold in polyester resin & fiberglass.</p>
+          </div>
+        </article>
+
+        <article class="project-card" data-index="1">
+          <img src="bev.png" alt="EV aerodynamic">
+          <div class="card-body">
+            <h3>Aerodynamic & Structural Analysis — BEV</h3>
+            <p>CFD and FEA for aerodynamic optimization and chassis validation.</p>
+          </div>
+        </article>
+
+        <article class="project-card" data-index="2">
+          <img src="warehouse.jpg" alt="Hangar design">
+          <div class="card-body">
+            <h3>Design of a Steel Warehouse </h3>
+            <p>Structural analysis and design according to Eurocode using Robot Structural Analysis.</p>
+          </div>
+        </article>
+
+        <article class="project-card" data-index="3">
+          <img src="turbineblade.png" alt="Turbine blade reverse engineering">
+          <div class="card-body">
+            <h3>Reverse Engineering of a turbine blade</h3>
+            <p>Reverse-engineering and model a damaged turbine blade to recover its geometry,.</p>
+          </div>
+        </article>
+
+        <article class="project-card" data-index="4">
+          <img src="secondarybeam.png" alt="Beam optimization">
+          <div class="card-body">
+            <h3>Structural Optimization of a Secondary Beam</h3>
+            <p>Optimization of a secondary beam for a steel structure .</p>
+          </div>
+        </article>
+
+ 
+
+        <article class="project-card" data-index="6">
+          <img src="pipestress.png" alt="Thick tube under internal pressure">
+          <div class="card-body">
+            <h3>Pipe Stress analysis </h3>
+            <p>Stress analysis and dimensioning of a thick-walled tube under internal pressure.</p>
+          </div>
+        </article>
+
+        <article class="project-card" data-index="7">
+          <img src="fdm.png" alt="FDM AI">
+          <div class="card-body">
+            <h3>Artificial Intelligence-Based Control of Fused Deposition Modeling (FDM) Processes</h3>
+            <p>Using AI to control and optimize FDM additive manufacturing processes.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT VIEWER: full-screen section for one project at a time (hidden by default) -->
+  <div id="project-viewer" class="project-viewer" aria-hidden="true">
+    <button class="pv-close" id="pv-close" aria-label="Close project (Esc)">&times;</button>
+    <button class="pv-prev" id="pv-prev" aria-label="Previous project"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="pv-next" id="pv-next" aria-label="Next project"><i class="fa-solid fa-chevron-right"></i></button>
+
+    <div class="pv-content">
+      <!-- content populated by JS -->
+      <div class="pv-visual" id="pv-visual">
+        <img src="" alt="" id="pv-img">
+      </div>
+
+      <div class="pv-panels">
+        <div class="pv-panel pv-objective">
+          <h3>Objective</h3>
+          <div class="pv-text" id="pv-objective"></div>
+        </div>
+
+        <div class="pv-panel pv-technical">
+          <h3>Technical Details</h3>
+          <div class="pv-text" id="pv-technical"></div>
+        </div>
+
+        <div class="pv-panel pv-results">
+          <h3>Results / Outcomes</h3>
+          <div class="pv-text" id="pv-results"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+<section id="skills" class="section-two">
+  <div class="section-content">
+    <h2><i class="fa-solid fa-gears"></i> Skills</h2>
+
+    <!-- Skills Logos Grid -->
+    <div class="skills-logos">
+      <img src="solidworks.png" alt="SolidWorks" title="SolidWorks">
+      <img src="catia.png" alt="Catia V5" title="Catia V5">
+      <img src="ansys.png" alt="Ansys" title="Ansys">
+      <img src="abaqus.png" alt="Abaqus" title="Abaqus">
+      <img src="robobat.webp" alt="Robobat" title="Robobat">
+      <img src="openlca.png" alt="OpenLCA" title="OpenLCA">
+      <img src="python.png" alt="Python" title="Python">
+      <img src="c++.png" alt="C/C++" title="C/C++">
+      <img src="c.png" alt="C/C++" title="C/C++">
+      <img src="office.png" alt="Microsoft Office" title="Microsoft Office">
+    </div>
+
+    <!-- Text-based Skill List -->
+    <ul class="skills-list">
+      <li><strong>CAD:</strong> SolidWorks, Catia V5</li>
+      <li><strong>Simulation:</strong> Ansys, Abaqus, RDM6, Robobat</li>
+      <li><strong>Environmental:</strong> OpenLCA</li>
+      <li><strong>Programming:</strong> C/C++, Python</li>
+      <li><strong>Office Tools:</strong> Word, Excel, PowerPoint</li>
+      <li><strong>Languages:</strong> French, English, Arabic</li>
+    </ul>
+  </div>
+</section>
+
+
+ <!-- EDUCATION -->
+<section id="education" class="section-two">
+  <div class="section-content">
+    <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+    <div class="education-item">
+      <h3>ENSAM Meknès</h3>
+      <p>Engineering Degree — Mechanical Engineering, Structures & Product Engineering (In progress)</p>
+    </div>
+    <div class="education-item">
+      <h3>Manarat Al Firdaous High School</h3>
+      <p>International Baccalaureate — Highest Honors (2020)</p>
+    </div>
+  </div>
+</section>
+
+
+ <section id="experience" class="section-two">
+  <div class="section-content">
+    <h2><i class="fa-solid fa-briefcase"></i> Experience</h2>
+    <div class="experience-item">
+      <h3>ONCF — Introductory Internship</h3>
+      <span>July 2024 – August 2024</span>
+      <p>Discovery of rolling stock maintenance activities and railway industrial operations.</p>
+    </div>
+    <div class="experience-item">
+      <h3>Tuyauto — End-of-year Project Internship</h3>
+      <span>July 2025 – September 2025</span>
+      <p>Risk assessment of production change from aluminum to steel on PR28 630T mechanical press.</p>
+    </div>
+  </div>
+</section>
+
+
+  <section id="certificates" class="section-two">
+  <div class="section-content narrow">
+    <h2><i class="fa-solid fa-certificate"></i> Certificates</h2>
+    <ul>
+      <li>Fundamentals of Computer-Aided Engineering — ESS Institute</li>
+      <li>FEA: Convergence and Mesh Independence — Coursera</li>
+      <li>FEM: Linear, Non-linear, and Post-processing Analysis — Coursera</li>
+    </ul>
+  </div>
+</section>
+
+
+  <section id="contact" class="section-two">
+  <div class="section-content">
+    <h2><i class="fa-solid fa-envelope"></i> Contact</h2>
+    <p><i class="fa-solid fa-paper-plane"></i> <strong>Email:</strong> <a href="mailto:kaw02mlk@gmail.com">kaw02mlk@gmail.com</a></p>
+    <p><i class="fa-solid fa-phone"></i> <strong>Phone:</strong> (+212) 6 49 64 37 95</p>
+    <p><i class="fa-solid fa-location-dot"></i> <strong>Location:</strong> Mohammedia, Morocco</p>
+  </div>
+</section>
+
+
+  <!-- Typing effect (same as before) -->
+  <script>
+    const roles = ["Mechanical Engineer", "CAD Designer", "Simulation Enthusiast"];
+    let i = 0, j = 0;
+    const span = document.querySelector(".typing-text span");
+    function type() {
+      if (!span) return;
+      if (j < roles[i].length) {
+        span.textContent += roles[i][j++];
+        setTimeout(type, 100);
+      } else setTimeout(erase, 1500);
+    }
+    function erase() {
+      if (!span) return;
+      if (j > 0) {
+        span.textContent = roles[i].substring(0, --j);
+        setTimeout(erase, 50);
+      } else {
+        i = (i + 1) % roles.length;
+        setTimeout(type, 200);
+      }
+    }
+    document.addEventListener("DOMContentLoaded", type);
+  </script>
+
+  <!-- PROJECT VIEWER SCRIPT -->
+  <script>
+    // Project data (texts for each project). Edit these strings to expand details.
+    const projectsData = [
+      {
+        title: "Design and manufacturing of a wind turbine blade mold",
+        img: "project1.jpg",
+        objective: "Produce a high-quality mold for a wind turbine blade using polyester resin and fiberglass to enable accurate blade manufacturing.",
+        technical: "CAD modeling of the blade and mold, material selection for resin and reinforcement, manufacturing process plan, lamination sequence, and curing parameters. Tools: SolidWorks, Ansys (structural checks).",
+        results: "Completed mold ready for production; validated geometry and preliminary structural checks; successful prototype lamination with acceptable surface finish."
+      },
+      {
+        title: "Aerodynamic and structural analysis of a battery electric vehicle",
+        img: "project2.jpg",
+        objective: "Optimize vehicle aerodynamics and ensure structural integrity of the chassis for efficiency and safety.",
+        technical: "CFD simulations for drag reduction, FEA for chassis strength and crash scenarios, iterative geometry adjustments. Tools: Ansys CFD & Structural, Abaqus.",
+        results: "Reduced drag coefficient and improved load distribution; structural model validated under key load cases."
+      },
+      {
+        title: "Dimensionnement d'un hangar (Robot / Eurocode)",
+        img: "project3.jpg",
+        objective: "Design and size a steel hangar structure complying with Eurocode using Robot Structural Analysis.",
+        technical: "Load calculations (dead, live, wind, snow), member sizing, connection checks, buckling and stability checks per Eurocode standards.",
+        results: "Validated hangar design with optimized member sizes and compliance documentation for Eurocode."
+      },
+      {
+        title: "Rétro-conception d’une aube de turbine",
+        img: "project4.jpg",
+        objective: "Reconstruct an existing turbine blade geometry to produce a CAD model suitable for analysis and reproduction.",
+        technical: "Reverse engineering using 3D scans, point cloud processing, surface reconstruction, and CAD surfacing. Tools: Geomagic/Cloud processing + Catia V5.",
+        results: "Accurate CAD model produced; ready for structural and aerodynamic studies."
+      },
+      {
+        title: "Optimisation d’une poutre secondaire pour une charpente métallique",
+        img: "project5.jpg",
+        objective: "Optimize the secondary beam geometry to minimize weight while meeting strength and serviceability criteria.",
+        technical: "FEA optimization loops, section property analysis, buckling and deflection checks, adherence to applicable design standards.",
+        results: "Weight reduction achieved with maintained safety margins; recommended section for fabrication."
+      },
+      
+      {
+        title: "Étude d’un tube épais sous pression interne",
+        img: "project7.jpg",
+        objective: "Analyse of stress distribution and dimensioning for a thick-walled cylinder subjected to internal pressure.",
+        technical: "Analytical Lame equations and finite element verification; material selection for yield and fatigue life considerations.",
+        results: "Validated dimensions and stress margins; recommended safety factor and inspection intervals."
+      },
+      {
+        title: "Pilotage du procédé FDM par l'intelligence artificielle",
+        img: "project8.jpg",
+        objective: "Implement AI-based control to improve FDM print quality and reduce defects.",
+        technical: "Data collection of process variables, ML model training for parameter tuning, closed-loop control integration with printer firmware.",
+        results: "Improved print quality metrics (e.g., dimensional accuracy and surface finish) and reduced failure rate in test prints."
+      }
+    ];
+
+    // DOM references
+    const cards = document.querySelectorAll('.project-card');
+    const viewer = document.getElementById('project-viewer');
+    const pvImg = document.getElementById('pv-img');
+    const pvObjective = document.getElementById('pv-objective');
+    const pvTechnical = document.getElementById('pv-technical');
+    const pvResults = document.getElementById('pv-results');
+    const pvClose = document.getElementById('pv-close');
+    const pvPrev = document.getElementById('pv-prev');
+    const pvNext = document.getElementById('pv-next');
+
+    let activeIndex = 0;
+
+    function openProject(index) {
+      const p = projectsData[index];
+      activeIndex = index;
+      pvImg.src = p.img;
+      pvImg.alt = p.title;
+      pvObjective.textContent = p.objective;
+      pvTechnical.textContent = p.technical;
+      pvResults.textContent = p.results;
+      viewer.classList.add('open');
+      viewer.setAttribute('aria-hidden','false');
+      // focus for accessibility
+      pvClose.focus();
+      // lock body scroll
+      document.body.style.overflow = 'hidden';
+      // set URL hash (optional)
+      history.replaceState(null, '', '#project-' + (index+1));
+    }
+
+    function closeProject() {
+      viewer.classList.remove('open');
+      viewer.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+      history.replaceState(null, '', ' ');
+    }
+
+    function prevProject() {
+      openProject((activeIndex - 1 + projectsData.length) % projectsData.length);
+    }
+    function nextProject() {
+      openProject((activeIndex + 1) % projectsData.length);
+    }
+
+    // attach click to cards
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const idx = Number(card.dataset.index);
+        openProject(idx);
+      });
+      card.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') openProject(Number(card.dataset.index));
+      });
+    });
+
+    pvClose.addEventListener('click', closeProject);
+    pvPrev.addEventListener('click', prevProject);
+    pvNext.addEventListener('click', nextProject);
+
+    // keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!viewer.classList.contains('open')) return;
+      if (e.key === 'Escape') closeProject();
+      if (e.key === 'ArrowLeft') prevProject();
+      if (e.key === 'ArrowRight') nextProject();
+    });
+
+    // allow clicking outside panels to close
+    viewer.addEventListener('click', (e) => {
+      if (e.target === viewer) closeProject();
+    });
+
+  </script>
+</body>
+</html>
