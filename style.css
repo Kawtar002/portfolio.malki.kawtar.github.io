@@ -261,4 +261,22 @@ section.home { min-height: 100vh; padding: 12rem 6% 6rem; display: flex; gap: 6r
     flex: 1 1 100%;
   }
 }
+/* ===== Education & Experience text normalization ===== */
+.education-item h3,
+.experience-item h3 {
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.education-item p,
+.experience-item p,
+.experience-item span {
+  font-size: 1.8rem;
+  color: #dfeefe;
+  margin-bottom: 1rem;
+}
+
+
 
